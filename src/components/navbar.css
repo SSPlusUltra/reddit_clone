@@ -1,0 +1,114 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF4500; /* Reddit Orange */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .reddit-icon {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background-color: #333; /* Reddit Dark Gray */
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-link:hover {
+    background-color: #333; /* Reddit Dark Gray */
+    border-radius: 5px;
+  }
+  
+
+  /* Existing CSS styles are the same */
+
+.subreddit-dropdown {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #FF4500;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    z-index: 1;
+  }
+  
+  .create-subreddit-btn {
+    background-color: #FF4500; /* Reddit Orange */
+    color:  #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin: 0.25rem 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .dropdown-link {
+    color: #333; /* Reddit Dark Gray */
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  .create-subreddit-btn:hover{
+    background-color: #f7f7f7;
+  }
+  .dropdown-link:hover {
+    background-color: #f7f7f7;
+  }
+
+  /* Existing CSS styles are the same */
+
+.subreddits-button {
+    background-color: #F7A541; /* Change to your desired background color */
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem; /* Add some space between Profile and Subreddits buttons */
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+  }
+  
+  .subreddits-button:hover {
+    background-color: #333; /* Reddit Orange */
+  }
+  
+  /* Rest of the existing CSS styles are the same */
+  
+  .profile{
+    background-color: #F7A541; /* Change to your desired background color */
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem; /* Add some space between Profile and Subreddits buttons */
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+  }
