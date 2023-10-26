@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
-
+import LogoS from '../logo3.jpg'
+import SignOut from './sign-out';
 const Navbar = (props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
@@ -28,14 +29,20 @@ const Navbar = (props) => {
     };
   }, []);
 
+  
+
   return (
     <nav className="navbar" >
-      <div className="logo">
-        <Link to='/' className="reddit-icon">My Reddit</Link>
-      </div>
-      <div className="nav-links">
+     <div className="logo">
+  <Link to='/homepage'>
+    <img src={LogoS} className= "reddit-icon"style={{ width: '60px', height: '60px', margin:'2px 0px 1px' }}/>
+  </Link>
+</div>
+<div className='logo-text'>
+  <h3>ThreadShare</h3>
+</div>
+<div className="nav-links">
         <div className="subreddit-dropdown" ref={dropdownRef}>
-        <Link to='/profile' href="#" className="nav-link profile" style = {{height: "10px", fontSize: "15px", padding:"5px", width:"50px"}}>Profile</Link>
           <button onClick={toggleDropdown} className="nav-link subreddits-button">Subreddits</button> {/* Add the subreddits-button class */}
           {showDropdown && (
             <div className="dropdown-content">
@@ -46,12 +53,14 @@ const Navbar = (props) => {
                 <Link onClick={toggleDropdown} to={{
                   pathname: '/subredditpage',
                   search: `?title=${encodeURIComponent(item.title)}`,
-                }}  key={item.description} href="#" className="dropdown-link">{item.title}</Link>
+                }}  key={item.id} href="#" className="dropdown-link">{item.title}</Link>
               ))}
             </div>
           )}
         </div>
       </div>
+<Link to='/profile'  className="profile" style = {{margin:'5px' ,height: "25px", fontSize: "15px", padding:"10px 5px 5px 20px", width:"60px"}}>Profile</Link>
+<SignOut/>
     </nav>
   );
 };

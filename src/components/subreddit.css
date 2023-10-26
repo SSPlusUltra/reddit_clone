@@ -1,50 +1,59 @@
-/* Add this CSS in a separate file or use CSS-in-JS solution like styled-components */
+.create-community{
+  color: white;
+}
 
-body {
-    background-color: #ffddc1;
-  }
+.post-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #3d3d3d;
+  margin-top: 100px;
   
-  .container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ff914d;
-    border-radius: 5px;
-    background-color: #ffe6cc;
+  padding-top: 30px;
+  border: solid white 1px;
+  margin-left: 400px;
+}
+
+
+.imagee{
+  margin-top: 20px;
+}
+
+.label-colorP{
+  color: red;
+}
+
+.input-field {
+  height: 40px;
+  /* Other input field styles */
+  margin-bottom: 10px;
+  width:95%;
+  background-color:#30303030!important ;
+  text-indent: 10px;
+  border: solid white 1px;
+  color: grey;
+  margin-top: 8px;
   }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #ff5700;
-  }
-  
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ff5700;
-    border-radius: 5px;
-    resize: vertical;
-    background-color: #fff3e6;
-    color: #ff5700;
-  }
-  
-  button {
-    background-color: #ff914d;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #ff5700;
-  }
-  
+
+.input-field-large {
+  height: 120px;
+  width: 95%;
+  /* Other input field styles */
+  background-color:#30303030!important ;
+  text-indent: 10px;
+  border: solid white 1px;
+  color: grey;
+}
+
+.post-it{
+  margin-top:20px;
+  align-self: flex-end;
+  background-color:blue ;
+  border-radius: 20px;
+  width:100px;
+  height:30px;
+  align-items: center;
+  cursor:pointer
+}
+

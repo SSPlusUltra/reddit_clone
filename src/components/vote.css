@@ -1,0 +1,57 @@
+.vote-section {
+    display: flex;
+    margin-right: 10px;
+    flex-direction: column;
+    gap:0.25rem;
+    margin-top: 20px;
+    margin-left: 5px;;
+  }
+  
+  .vote-button {
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    outline: none;
+    font-size: 20px;
+    margin-left: 4px;
+  }
+  
+  .votes-count {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+.upvote-active {
+
+  color: yellow; /* Choose a color for the active state */
+  /* Add other styles for the active state as needed */
+  cursor:pointer;
+
+}
+
+/* Inactive upvote button */
+.upvote-inactive {
+
+  /* Add styles for the inactive state as needed */
+  cursor:pointer;
+  color: grey;
+}
+
+/* Active downvote button */
+.downvote-active {
+  cursor: pointer;
+ 
+  color: yellow; /* Choose a color for the text in the active state */
+  /* Add other styles for the active state as needed */
+}
+
+/* Inactive downvote button */
+.downvote-inactive {
+  color: grey; /* Choose a color for the inactive state */
+  /* Add styles for the inactive state as needed */
+  cursor:pointer;
+}
+
+  

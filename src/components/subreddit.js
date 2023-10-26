@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import './subreddit.css'
 import { useNavigate } from 'react-router-dom';
+import { storage } from '../firebase';
+import{ref,uploadBytes} from 'firebase/storage'
+import {v4} from 'uuid'
 
 const SubredditCreationForm = (props) => {
  const [newtitle, setTitle] = useState('')
  const [newdesc, setDesc] = useState('')
+ const [imageUpload, setImageUpload] = useState(null);
 const navigate = useNavigate()
  const handleTitle = (event)=>{
     setTitle(event.target.value);
@@ -20,9 +24,18 @@ const navigate = useNavigate()
 
  const handleSubmit = (event)=>{
     event.preventDefault();
+    const subid = v4();
+    if(!imageUpload){
+      console.log('no image')
+    }
+    const imageRef = ref(storage, `r/${newtitle}/${subid}`)
+    uploadBytes(imageRef, imageUpload).then(()=>{
+      alert("image uploaded")
+    })
     const data = {
         title: "r/"+newtitle,
-        description: newdesc
+        description: newdesc,
+        id: subid
     }
 props.onsubreddit(data);
 const subredditTitle = encodeURIComponent(data.title);
@@ -34,36 +47,21 @@ navigate(url)
 
  }
   return (
-    <div className="container">
-      <h2>Create Subreddit</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={newtitle}
-            onChange={handleTitle}
-            placeholder="Enter subreddit title"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            value={newdesc}
-            onChange={handleDesc}
-            rows="4"
-            placeholder="Enter subreddit description"
-            required
-          />
-        </div>
-        <button type="submit">Create Subreddit</button>
-      </form>
+  <form onSubmit={handleSubmit}> 
+  <div className="post-container">  
+  <h2 className='create-community'>Create Community</h2>
+    <input onChange={handleTitle} type='text-area' 
+        placeholder='Commmunity-name' className="input-field"  />
+    <input onChange={handleDesc}type='text-area' placeholder='About subthread(optional)' className="input-field-large" />
+    <div className='community-icon'>
+    <label style={{ color: 'white', margin:'10px'}}>choose community icon:</label>
+    <input onChange={(event)=>{
+setImageUpload(event.target.files[0])
+    }} type='file' className='imagee' style={{cursor:'pointer'}}/>
     </div>
+    <button className='post-it' type='submit'>Create</button>
+    </div>
+    </form>
   );
 };
 

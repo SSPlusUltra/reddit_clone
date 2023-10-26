@@ -1,0 +1,38 @@
+.community-container{
+    width: 270px;
+    background-color: #3d3d3d;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    border:solid white 1px;
+    height:400px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:1em;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Set a specific height for the container */
+ 
+  }
+  
+  .rounded-logo {
+    margin-top: 20px;
+    width: 100px; /* Set a specific width for the logo */
+    height: 100px; /* Set a specific height for the logo */
+    border-radius: 50%; /* Make the image rounded */
+    object-fit: cover; /* This is optional; it helps maintain the aspect ratio of the image */
+  }
+  
+  .community-title{
+    padding-top: 5px;
+    color: aliceblue;
+  }
+
+  .community-desc{
+    padding: 10px;
+    color: aliceblue;
+  }

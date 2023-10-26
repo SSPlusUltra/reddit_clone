@@ -1,57 +1,41 @@
-/* PostDisplay.css */
-.post-card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .post-header {
-    margin-bottom: 10px;
-  }
-  
-  .post-title {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
-  .post-content {
-    margin-bottom: 10px;
-  }
-  
-  .vote-section {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-  }
-  
-  .vote-button {
-    border: none;
-    background: orange;
-    font-size: 10px;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .votes-count {
-    margin: 0 5px;
-    font-size: 14px;
-  }
-  
-  .author {
-    margin-right: 10px;
-    font-size: 14px;
-    color: #888;
-  }
-  
-  .comments {
-    font-size: 14px;
-    color: #888;
-  }
-  
-  /* Style the comments logo using font awesome (you can use any other icon library) */
-  .comments .fa-comments {
-    margin-right: 5px;
-  }
-  
+.post-card{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  color:white;
+  width:45%;
+
+  margin-bottom: 20px;
+  background-color:#303030;
+  margin-left: 370px;
+
+  border:solid white 1px;
+}
+
+.post-footer{
+  background-color: #3d3d3d;
+}
+
+.right-part{
+  display: flex;
+  flex-direction: column;
+gap: 0.7em;
+margin-left: 5px;
+
+}
+
+
+
+.post-content{
+  margin-bottom: 35px;;
+}
+
+.comments-main{
+  color:white
+}
+
+.footer{
+  display: flex;
+  margin-left: 150px;
+  margin-bottom: 10px;
+}

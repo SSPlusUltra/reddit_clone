@@ -1,13 +1,31 @@
 import PostDisplay from "./displaypost"
+import CommunityPost from "./community-post";
 const HomePage = (props)=>{
-    if (!props.postdata || props.postdata.length === 0) {
+    if (props.pdata.length === 0) {
         return <p>No posts available. Click on subreddit button on top right and make posts in subreddits to see the posts here.</p>;
       }
 
 return(
-        props.postdata.map((post) => (
-          <PostDisplay key={post.id} v1={post.title} v2={post.description} v3={post.id} v4={post.date}/>
-        ))
+  <div>
+    <br></br>
+   
+    <CommunityPost/>
+    <br></br>
+        {props.pdata.map((post) => (
+          <PostDisplay
+        v1={post.title}
+        v2={post.description}
+        v3={post.pid}
+        v4={post.vote}
+        v5={post.id}
+        UpclickHandler = {props.Uv}
+        DownclickHandler = {props.Dv}
+        upress = {post.upvotepressed}
+        dpress = {post.downvotepressed}
+        key={post.pid}
+      />
+        ))}
+        </div>
       )
 }
 

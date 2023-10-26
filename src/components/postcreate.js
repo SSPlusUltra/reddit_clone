@@ -1,9 +1,15 @@
 import React, { useState} from 'react';
 import { useLocation } from 'react-router-dom';
-import './subreddit.css'
-import { v4 as uuidv4 } from 'uuid';
+import './postcreate.css'
+import {v4} from 'uuid'
 import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import Communitydiv from './communitydiv';
 const CreatePosts =(props)=>{
+  const [onShow, setonShow] = useState(false);
+  const [subThread, setsubThread] = useState(null)
 
 const location = useLocation();
 const queryParams = new URLSearchParams(location.search);
@@ -24,16 +30,21 @@ const newT = encodeURIComponent(par);
 
  }
 
+ const uid = auth.currentUser.uid;
 
  const handleSubmit = (event)=>{
     event.preventDefault();
     const currentDate = new Date().toISOString(); 
     const data = {
-        id: uuidv4(),
+        pid: v4(),
+        id: uid,
         title: newtitle,
         description: newdesc,
         subreddit: par || '',
-        date: currentDate
+        date: currentDate,
+        vote:0,
+        upvotepressed:{'initial': true},
+        downvotepressed:{'initial': true}
     }
     props.oncreate(data)
     const subredditTitle = encodeURIComponent(data.subreddit);
@@ -43,38 +54,38 @@ setDesc('')
 navigate(url);
 
  }
-  return (
-    <div className="container">
-      <h2>Create Post</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={newtitle}
-            onChange={handleTitle}
-            placeholder="Enter subreddit title"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            value={newdesc}
-            onChange={handleDesc}
-            rows="4"
-            placeholder="Enter subreddit description"
-            required
-          />
-        </div>
-        <button type="submit">Create Post</button>
-      </form>
+ return (
+  <form onSubmit={handleSubmit}>
+  <div className='other-container'>
+  <div className="post-container">
+    <div onClick={()=>{
+      setonShow(!onShow)
+    }} className='sub-thread-dropdown'>
+      <div className='main-button'> choose a community </div>
+      <span className='caret-down'><FontAwesomeIcon icon={faCaretDown} /></span>
     </div>
-  );
+   {onShow &&
+    <div className='drop-down-content'>
+    {props.formD.map((item) => (
+               <span onClick={()=>{
+                  setsubThread(item.title)
+                  navigate(`/postcreate?par=${encodeURIComponent(item.title)}`);
+               }} className='sp'>{item.title}</span>
+              ))}
+  </div>
+   }
+   
+    <input onChange={handleTitle} type='text-area' placeholder='Title' className="input-field"  />
+    <input onChange={handleDesc} type='text-area' placeholder='Description(optional)' className="input-field-large" />
+    <button className='post-it' type='submit'>Post</button>
+  </div>
+{subThread && <Communitydiv title={subThread} newD={props.formD}/>
+   }
+  
+  </div>
+  </form>
+);
+
 };
 
 export default CreatePosts;

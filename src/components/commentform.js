@@ -1,34 +1,28 @@
 import React, { useState } from 'react';
 import './commentform.css'; // Import the CSS file
+import { auth } from '../firebase';
+import Communitydiv from './communitydiv';
 
 const CommentForm = (props) => {
   const [comment, setComment] = useState('');
 
   const handleCommentChange = (event) => {
-    setComment(event.target.value);
+    event.preventDefault();
+    props.onSub(comment, auth.currentUser.displayName);
+    setComment('');
+
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Call the onSubmit function passed from the parent with the comment data
-    props.onSubmit(comment);
-    // Reset the comment input after submission
-    setComment('');
-  };
+ 
 
   return (
+    <form onSubmit={handleCommentChange}>
     <div className="comment-form-container"> {/* Add the container div */}
-      <h2>Leave a Comment</h2>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={comment}
-          onChange={handleCommentChange}
-          placeholder="Write your comment..."
-          required
-        />
-        <button type="submit">Submit Comment</button>
-      </form>
+    <h3>comment as {auth.currentUser.displayName}</h3>
+      <input className='comment-form' type='text' placeholder='Thoughts...?' onChange={(e) => setComment(e.target.value)}  />
+      <button type='submit' className='postingg'>post</button> 
     </div>
+    </form>
   );
 };
 

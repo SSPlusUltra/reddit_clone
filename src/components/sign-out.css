@@ -1,0 +1,10 @@
+.sign-out-button{
+    background-color: #1a150f; /* Change to your desired background color */
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    height: 40px;
+    bottom: 0;
+    width:100px
+}
